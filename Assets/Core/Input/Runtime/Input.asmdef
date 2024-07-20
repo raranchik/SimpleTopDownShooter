@@ -1,0 +1,21 @@
+{
+    "name": "Input",
+    "rootNamespace": "",
+    "references": [
+        "Infrastructure",
+        "Input.Player",
+        "VContainer",
+        "Unity.InputSystem",
+        "Base.Notifier",
+        "Base.VContainerExt"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
