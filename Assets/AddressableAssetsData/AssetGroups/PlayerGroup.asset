@@ -18,7 +18,12 @@ MonoBehaviour:
   m_GUID: bc58d9eab617710419e78ebc184d9de8
   m_SerializeEntries:
   - m_GUID: aaa908c83f6d06f4096d1e8265bac210
-    m_Address: Addressables/PlayerGroup/PlayerView
+    m_Address: PlayerView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40dbcdd466074fb689c32f1f5f7f573f
+    m_Address: PlayerConfig
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

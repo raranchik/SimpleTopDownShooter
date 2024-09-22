@@ -18,7 +18,7 @@ namespace Core.Base.VContainerExt.Tests.T1
                 Namespaces = new HashSet<string>(),
             };
             var context = new VContainerContext(contextData);
-            context.InitContext();
+            context.Initialize();
             base.Configure(builder);
         }
     }

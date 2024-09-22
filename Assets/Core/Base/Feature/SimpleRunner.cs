@@ -21,7 +21,7 @@ namespace Core.Base.Feature
             return this;
         }
 
-        public IEnumerator InitializeSystems()
+        public IEnumerator Initialize()
         {
             yield return m_Launcher.InitializeSystems(m_Systems.Values.ToArray());
         }
@@ -29,6 +29,14 @@ namespace Core.Base.Feature
         public ISystem GetSystem(Type name)
         {
             return m_Systems[name];
+        }
+
+        public void SortFeaturesOnEachSystem()
+        {
+            foreach (var (_, system) in m_Systems)
+            {
+                system.SortFeatures();
+            }
         }
     }
 }

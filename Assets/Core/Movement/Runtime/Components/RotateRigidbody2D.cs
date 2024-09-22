@@ -12,7 +12,7 @@ namespace Core.Movement.Components
 
         public void Rotate(Quaternion rotation)
         {
-            m_Rigidbody2D.SetRotation(rotation);
+            m_Rigidbody2D.MoveRotation(rotation);
         }
     }
 }

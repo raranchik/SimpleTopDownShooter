@@ -1,11 +1,12 @@
 ﻿using Core.Base.Notifier;
 using Core.Base.VContainerExt.Attributes;
-using Core.Infrastructure;
+using Core.Infrastructure.Start;
 using UnityEngine;
 
 namespace Core.Input.Player.Click
 {
-    [Register, As(typeof(IPlayerInputStartClickNotifier)), AsSelf, Context(typeof(StartContext))]
+    [Register, As(typeof(IPlayerInputStartClickNotifier), typeof(INotifier<IPlayerInputStartClickObserver>)),
+     AsSelf, Context(typeof(StartContext))]
     public class PlayerInputStartClickNotifier : IPlayerInputStartClickNotifier
     {
         private readonly Notifier<IPlayerInputStartClickObserver> m_Notifier =

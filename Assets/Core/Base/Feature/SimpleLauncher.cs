@@ -9,6 +9,8 @@ namespace Core.Base.Feature
         public IEnumerator InitializeSystems(IEnumerable<ISystem> systems)
         {
             var listSystems = systems.ToList();
+            PreInitializeSystems(listSystems);
+
             for (var i = 0; i < listSystems.Count; ++i)
             {
                 var system = listSystems[i];
@@ -23,7 +25,8 @@ namespace Core.Base.Feature
                 yield return null;
             }
 
-            yield return null;
+            PostInitializeSystems(listSystems);
+            yield break;
         }
 
         private IEnumerator InitializeFeatures(IEnumerable<IFeature> features)
@@ -39,6 +42,28 @@ namespace Core.Base.Feature
                 }
 
                 yield return null;
+            }
+        }
+
+        private void PreInitializeSystems(IEnumerable<ISystem> systems)
+        {
+            foreach (var system in systems)
+            {
+                foreach (var feature in system.GetFeatures())
+                {
+                    feature.PreInitialize();
+                }
+            }
+        }
+
+        private void PostInitializeSystems(IEnumerable<ISystem> systems)
+        {
+            foreach (var system in systems)
+            {
+                foreach (var feature in system.GetFeatures())
+                {
+                    feature.PostInitialize();
+                }
             }
         }
     }

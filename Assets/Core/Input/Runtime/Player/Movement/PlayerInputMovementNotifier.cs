@@ -1,11 +1,12 @@
 ﻿using Core.Base.Notifier;
 using Core.Base.VContainerExt.Attributes;
-using Core.Infrastructure;
+using Core.Infrastructure.Start;
 using UnityEngine;
 
 namespace Core.Input.Player.Movement
 {
-    [Register, As(typeof(IPlayerInputMovementNotifier)), AsSelf, Context(typeof(StartContext))]
+    [Register, As(typeof(IPlayerInputMovementNotifier), typeof(INotifier<IPlayerInputMovementObserver>)),
+     AsSelf, Context(typeof(StartContext))]
     public class PlayerInputMovementNotifier : IPlayerInputMovementNotifier
     {
         private readonly Notifier<IPlayerInputMovementObserver> m_Notifier =

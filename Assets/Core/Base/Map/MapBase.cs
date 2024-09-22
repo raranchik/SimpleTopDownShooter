@@ -26,9 +26,9 @@ namespace Core.Base.Map
             return m_Map.GetValueOrDefault(key);
         }
 
-        public Dictionary<TKey, TValue>.ValueCollection GetValues()
+        public Dictionary<TKey, TValue> GetValues()
         {
-            return m_Map.Values;
+            return m_Map;
         }
 
         public bool HasValues()

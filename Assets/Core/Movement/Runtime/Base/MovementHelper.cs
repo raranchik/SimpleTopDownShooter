@@ -1,5 +1,5 @@
 ﻿using Core.Base.VContainerExt.Attributes;
-using Core.Infrastructure;
+using Core.Infrastructure.Start;
 using UnityEngine;
 
 namespace Core.Movement.Base

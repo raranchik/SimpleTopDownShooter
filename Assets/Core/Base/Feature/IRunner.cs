@@ -6,7 +6,8 @@ namespace Core.Base.Feature
     public interface IRunner
     {
         IRunner AddSystem(ISystem system);
-        IEnumerator InitializeSystems();
+        IEnumerator Initialize();
         ISystem GetSystem(Type name);
+        void SortFeaturesOnEachSystem();
     }
 }

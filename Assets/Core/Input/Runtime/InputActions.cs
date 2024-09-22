@@ -30,7 +30,7 @@ namespace Core.Input
             ""id"": ""86264af9-a3ac-46b8-8f9f-93736bebd76b"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""989b0c68-60f9-44c7-a436-c1d9b4a167fc"",
                     ""expectedControlType"": ""Vector2"",
@@ -59,13 +59,13 @@ namespace Core.Input
             ],
             ""bindings"": [
                 {
-                    ""name"": ""2D Vector"",
+                    ""name"": ""Keyboard"",
                     ""id"": ""973f749b-8d1b-44da-b010-7aa85dc8265f"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -76,7 +76,7 @@ namespace Core.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayerInput"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -87,7 +87,7 @@ namespace Core.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayerInput"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -98,7 +98,7 @@ namespace Core.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayerInput"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -109,7 +109,7 @@ namespace Core.Input
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""PlayerInput"",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -125,7 +125,7 @@ namespace Core.Input
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""One Modifier"",
+                    ""name"": ""Mouse"",
                     ""id"": ""9b9747e6-6f41-4364-aa72-0b967cbfc4b4"",
                     ""path"": ""OneModifier"",
                     ""interactions"": """",
@@ -170,7 +170,7 @@ namespace Core.Input
 }");
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-            m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+            m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
             m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         }
@@ -234,14 +234,14 @@ namespace Core.Input
         // Player
         private readonly InputActionMap m_Player;
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
-        private readonly InputAction m_Player_Movement;
+        private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Click;
         private readonly InputAction m_Player_Fire;
         public struct PlayerActions
         {
             private @InputActions m_Wrapper;
             public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Movement => m_Wrapper.m_Player_Movement;
+            public InputAction @Move => m_Wrapper.m_Player_Move;
             public InputAction @Click => m_Wrapper.m_Player_Click;
             public InputAction @Fire => m_Wrapper.m_Player_Fire;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -253,9 +253,9 @@ namespace Core.Input
             {
                 if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
                 m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
-                @Movement.started += instance.OnMovement;
-                @Movement.performed += instance.OnMovement;
-                @Movement.canceled += instance.OnMovement;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
                 @Click.started += instance.OnClick;
                 @Click.performed += instance.OnClick;
                 @Click.canceled += instance.OnClick;
@@ -266,9 +266,9 @@ namespace Core.Input
 
             private void UnregisterCallbacks(IPlayerActions instance)
             {
-                @Movement.started -= instance.OnMovement;
-                @Movement.performed -= instance.OnMovement;
-                @Movement.canceled -= instance.OnMovement;
+                @Move.started -= instance.OnMove;
+                @Move.performed -= instance.OnMove;
+                @Move.canceled -= instance.OnMove;
                 @Click.started -= instance.OnClick;
                 @Click.performed -= instance.OnClick;
                 @Click.canceled -= instance.OnClick;
@@ -303,7 +303,7 @@ namespace Core.Input
         }
         public interface IPlayerActions
         {
-            void OnMovement(InputAction.CallbackContext context);
+            void OnMove(InputAction.CallbackContext context);
             void OnClick(InputAction.CallbackContext context);
             void OnFire(InputAction.CallbackContext context);
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Core.Base.VContainerExt.Attributes;
-using Core.Infrastructure;
+using Core.Infrastructure.Start;
 using VContainer.Unity;
 
 namespace Core.Input

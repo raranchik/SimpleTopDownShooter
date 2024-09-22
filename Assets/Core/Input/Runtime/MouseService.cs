@@ -1,11 +1,11 @@
 ﻿using Core.Base.VContainerExt.Attributes;
-using Core.Infrastructure;
+using Core.Infrastructure.Application;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Core.Input
 {
-    [Register, Context(typeof(StartContext))]
+    [Register, Context(typeof(ApplicationContext))]
     public class MouseService
     {
         private readonly Mouse m_Current;

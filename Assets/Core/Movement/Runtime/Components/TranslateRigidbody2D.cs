@@ -11,7 +11,7 @@ namespace Core.Movement.Components
 
         public void Translate(Vector3 position)
         {
-            m_Rigidbody2D.MovePosition(position);
+            m_Rigidbody2D.velocity = position;
         }
     }
 }

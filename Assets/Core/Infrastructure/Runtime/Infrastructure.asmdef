@@ -2,8 +2,13 @@
     "name": "Infrastructure",
     "rootNamespace": "",
     "references": [
-        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
-        "GUID:86b08137ed264e1482d7b936ad5a7cf4"
+        "VContainer",
+        "Base.VContainerExt",
+        "Base.Feature",
+        "Base.Configs",
+        "Base.AddressablesExt",
+        "Base.CoroutineRunner",
+        "CameraExt"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

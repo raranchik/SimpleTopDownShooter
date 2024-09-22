@@ -1,0 +1,22 @@
+{
+    "name": "Zones",
+    "rootNamespace": "",
+    "references": [
+        "GUID:95e955a309a0446488613a96a71af6a7",
+        "GUID:a025ac52f12d40549a173338ff9e8ae4",
+        "GUID:83af685dd09b47df93dd00662b840e45",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:c3822fffd36f49ac8968a3ad4dd29e7f",
+        "GUID:970057e77ab26fe4e94d401899df92c4",
+        "GUID:f53d84b5b9014ac8a15fd744ef26091e"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

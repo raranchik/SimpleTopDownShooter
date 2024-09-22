@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Zone
+  - Enemy
+  - Pickable
+  - Terrain
+  - Projectile
   - 
   - 
   - 

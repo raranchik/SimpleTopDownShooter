@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 using Core.Base.Feature.Attributes;
+using UnityEngine;
 
 namespace Core.Base.Feature
 {
@@ -25,17 +26,21 @@ namespace Core.Base.Feature
                 var attribute = feature.Key.GetCustomAttribute<SystemAttribute>();
                 if (attribute == null)
                 {
+                    Debug.LogError($"System attribute is null");
                     continue;
                 }
 
                 var system = runner.GetSystem(attribute.Name);
                 if (system == null)
                 {
+                    Debug.LogError($"System doesnt exist");
                     continue;
                 }
-                
+
                 system.AddFeature(attribute.Order, feature.Value);
             }
+
+            runner.SortFeaturesOnEachSystem();
         }
 
         public IFeature GetFeature(Type name)

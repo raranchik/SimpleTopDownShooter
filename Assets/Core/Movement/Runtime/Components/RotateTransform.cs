@@ -8,7 +8,7 @@ namespace Core.Movement.Components
         [SerializeField] private Transform m_Transform;
 
         public Quaternion Rotation => m_Transform.rotation;
-
+        
         public void Rotate(Quaternion rotation)
         {
             m_Transform.rotation = rotation;

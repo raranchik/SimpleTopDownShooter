@@ -1,10 +1,11 @@
 ﻿using Core.Base.Notifier;
 using Core.Base.VContainerExt.Attributes;
-using Core.Infrastructure;
+using Core.Infrastructure.Start;
 
 namespace Core.Input.Player.Movement
 {
-    [Register, As(typeof(IPlayerInputEndMovementNotifier)), AsSelf, Context(typeof(StartContext))]
+    [Register, As(typeof(IPlayerInputEndMovementNotifier), typeof(INotifier<IPlayerInputEndMovementObserver>)),
+     AsSelf, Context(typeof(StartContext))]
     public class PlayerInputEndMovementNotifier : IPlayerInputEndMovementNotifier
     {
         private readonly Notifier<IPlayerInputEndMovementObserver> m_Notifier =

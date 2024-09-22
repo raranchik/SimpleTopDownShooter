@@ -10,5 +10,6 @@ namespace Core.Base.Feature
         IEnumerable<IFeature> GetFeatures();
         bool IsPredicatesCompleted();
         void OnInitializeCompleted();
+        void SortFeatures();
     }
 }
